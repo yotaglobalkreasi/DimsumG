@@ -45,7 +45,12 @@
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Kedai</label>
-                        <input type="text" name="kedai" placeholder="Nama Kedai" required class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                        <select name="kedai" required class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                            <option value="" disabled selected>Pilih Kedai</option>
+                            <option value="Binong">Binong</option>
+                            <option value="Karawaci">Karawaci</option>
+                            <option value="Perum">Perum</option>
+                        </select>
                     </div>
                 </div>
 
@@ -62,7 +67,7 @@
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Cash</label>
-                            <input type="text" inputmode="numeric" name="cash" required class="input-ribuan w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                            <input type="text" inputmode="numeric" name="cash" readonly tabindex="-1" class="input-ribuan w-full border border-gray-300 bg-gray-100 text-gray-600 rounded-lg p-2.5 focus:outline-none" placeholder="Otomatis">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Gas</label>
@@ -76,23 +81,19 @@
                             <label class="block text-sm font-medium text-gray-700 mb-1">Lain-Lain</label>
                             <input type="text" inputmode="numeric" name="lain_lain" required class="input-ribuan w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none">
                         </div>
+                        <div class="md:col-span-2 mt-2">
+                            <label class="block text-sm font-bold text-gray-800 mb-1">Setoran</label>
+                            <input type="text" inputmode="numeric" name="setoran" readonly tabindex="-1" class="input-ribuan w-full border-2 border-blue-200 bg-blue-100 text-blue-800 font-bold rounded-lg p-2.5 focus:outline-none" placeholder="Otomatis (Cash - Pengeluaran)">
+                        </div>
                     </div>
                 </div>
 
                 <div class="bg-gray-50 p-4 rounded-xl mb-6">
                     <h3 class="font-semibold text-gray-800 mb-4 border-b border-gray-200 pb-2">Stok Barang</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Stok Awal</label>
-                            <input type="text" inputmode="numeric" name="stok" required class="input-ribuan w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                        </div>
+                    <div class="grid grid-cols-1 gap-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Terjual</label>
                             <input type="text" inputmode="numeric" name="jual" required class="input-ribuan w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Sisa</label>
-                            <input type="text" inputmode="numeric" name="sisa" required class="input-ribuan w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none">
                         </div>
                     </div>
                 </div>
@@ -112,7 +113,12 @@
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Kedai Tujuan</label>
-                        <input type="text" name="kedai" placeholder="Nama Kedai" required class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                        <select name="kedai" required class="w-full border border-gray-300 rounded-lg p-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                            <option value="" disabled selected>Pilih Kedai</option>
+                            <option value="Binong">Binong</option>
+                            <option value="Karawaci">Karawaci</option>
+                            <option value="Perum">Perum</option>
+                        </select>
                     </div>
                 </div>
 
@@ -128,7 +134,65 @@
                         <!-- Row Template -->
                         <div class="flex gap-2 items-start item-row">
                             <div class="flex-1">
-                                <input type="text" name="nama_barang[]" placeholder="Nama Barang" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                <select name="nama_barang[]" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                    <option value="" disabled selected>Pilih Barang</option>
+                                    <optgroup label="Bahan">
+                                        <option value="Dimsum">Dimsum</option>
+                                        <option value="Mentai">Mentai</option>
+                                        <option value="Saus Tomat">Saus Tomat</option>
+                                        <option value="Saus Sambal Extra Hot">Saus Sambal Extra Hot</option>
+                                        <option value="Saus Sambal Hot1">Saus Sambal Hot1</option>
+                                        <option value="Chili Oil">Chili Oil</option>
+                                        <option value="Rumput Laut">Rumput Laut</option>
+                                        <option value="Sumpit">Sumpit</option>
+                                        <option value="Dus XS">Dus XS</option>
+                                        <option value="Dus S">Dus S</option>
+                                        <option value="Dus M">Dus M</option>
+                                        <option value="Dus L">Dus L</option>
+                                        <option value="Aluminum Foil">Aluminum Foil</option>
+                                        <option value="Plastik 15">Plastik 15</option>
+                                        <option value="Plastik 20">Plastik 20</option>
+                                        <option value="Plastik 25">Plastik 25</option>
+                                        <option value="Plastik Klip">Plastik Klip</option>
+                                        <option value="Plastik Cup">Plastik Cup</option>
+                                        <option value="Gas Portable">Gas Portable</option>
+                                        <option value="Sarung Tangan Plastik">Sarung Tangan Plastik</option>
+                                        <option value="Plastik Merah">Plastik Merah</option>
+                                        <option value="Tisu">Tisu</option>
+                                        <option value="Keju">Keju</option>
+                                    </optgroup>
+                                    <optgroup label="Alat">
+                                        <option value="Kompor">Kompor</option>
+                                        <option value="Gas">Gas</option>
+                                        <option value="Kukusan">Kukusan</option>
+                                        <option value="Penyangga Kukusan">Penyangga Kukusan</option>
+                                        <option value="Ember">Ember</option>
+                                        <option value="Flame Gun">Flame Gun</option>
+                                        <option value="Tempat sumpit">Tempat sumpit</option>
+                                        <option value="Box Dimsum">Box Dimsum</option>
+                                        <option value="Box Mentai">Box Mentai</option>
+                                        <option value="Tempat Nori">Tempat Nori</option>
+                                        <option value="Pisau">Pisau</option>
+                                        <option value="Penjepit">Penjepit</option>
+                                        <option value="Buku">Buku</option>
+                                        <option value="Pulpen">Pulpen</option>
+                                        <option value="Dompet">Dompet</option>
+                                        <option value="Teko">Teko</option>
+                                        <option value="Sendok">Sendok</option>
+                                        <option value="Galon">Galon</option>
+                                    </optgroup>
+                                    <optgroup label="Operational">
+                                        <option value="Salar">Salar</option>
+                                        <option value="Gas">Gas</option>
+                                        <option value="Gaji">Gaji</option>
+                                    </optgroup>
+                                    <optgroup label="Tambahan">
+                                        <option value="Tobiko">Tobiko</option>
+                                        <option value="Saos">Saos</option>
+                                        <option value="Chili">Chili</option>
+                                        <option value="Sunlight">Sunlight</option>
+                                    </optgroup>
+                                </select>
                             </div>
                             <div class="w-24">
                                 <input type="text" inputmode="numeric" name="qty[]" placeholder="Qty" required class="input-ribuan w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
@@ -165,7 +229,65 @@
                         <!-- Row Template -->
                         <div class="flex flex-wrap md:flex-nowrap gap-2 items-start item-row">
                             <div class="flex-1 min-w-[150px]">
-                                <input type="text" name="nama_barang[]" placeholder="Nama Barang" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                <select name="nama_barang[]" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                    <option value="" disabled selected>Pilih Barang</option>
+                                    <optgroup label="Bahan">
+                                        <option value="Dimsum">Dimsum</option>
+                                        <option value="Mentai">Mentai</option>
+                                        <option value="Saus Tomat">Saus Tomat</option>
+                                        <option value="Saus Sambal Extra Hot">Saus Sambal Extra Hot</option>
+                                        <option value="Saus Sambal Hot1">Saus Sambal Hot1</option>
+                                        <option value="Chili Oil">Chili Oil</option>
+                                        <option value="Rumput Laut">Rumput Laut</option>
+                                        <option value="Sumpit">Sumpit</option>
+                                        <option value="Dus XS">Dus XS</option>
+                                        <option value="Dus S">Dus S</option>
+                                        <option value="Dus M">Dus M</option>
+                                        <option value="Dus L">Dus L</option>
+                                        <option value="Aluminum Foil">Aluminum Foil</option>
+                                        <option value="Plastik 15">Plastik 15</option>
+                                        <option value="Plastik 20">Plastik 20</option>
+                                        <option value="Plastik 25">Plastik 25</option>
+                                        <option value="Plastik Klip">Plastik Klip</option>
+                                        <option value="Plastik Cup">Plastik Cup</option>
+                                        <option value="Gas Portable">Gas Portable</option>
+                                        <option value="Sarung Tangan Plastik">Sarung Tangan Plastik</option>
+                                        <option value="Plastik Merah">Plastik Merah</option>
+                                        <option value="Tisu">Tisu</option>
+                                        <option value="Keju">Keju</option>
+                                    </optgroup>
+                                    <optgroup label="Alat">
+                                        <option value="Kompor">Kompor</option>
+                                        <option value="Gas">Gas</option>
+                                        <option value="Kukusan">Kukusan</option>
+                                        <option value="Penyangga Kukusan">Penyangga Kukusan</option>
+                                        <option value="Ember">Ember</option>
+                                        <option value="Flame Gun">Flame Gun</option>
+                                        <option value="Tempat sumpit">Tempat sumpit</option>
+                                        <option value="Box Dimsum">Box Dimsum</option>
+                                        <option value="Box Mentai">Box Mentai</option>
+                                        <option value="Tempat Nori">Tempat Nori</option>
+                                        <option value="Pisau">Pisau</option>
+                                        <option value="Penjepit">Penjepit</option>
+                                        <option value="Buku">Buku</option>
+                                        <option value="Pulpen">Pulpen</option>
+                                        <option value="Dompet">Dompet</option>
+                                        <option value="Teko">Teko</option>
+                                        <option value="Sendok">Sendok</option>
+                                        <option value="Galon">Galon</option>
+                                    </optgroup>
+                                    <optgroup label="Operational">
+                                        <option value="Salar">Salar</option>
+                                        <option value="Gas">Gas</option>
+                                        <option value="Gaji">Gaji</option>
+                                    </optgroup>
+                                    <optgroup label="Tambahan">
+                                        <option value="Tobiko">Tobiko</option>
+                                        <option value="Saos">Saos</option>
+                                        <option value="Chili">Chili</option>
+                                        <option value="Sunlight">Sunlight</option>
+                                    </optgroup>
+                                </select>
                             </div>
                             <div class="w-24 flex-shrink-0">
                                 <input type="text" inputmode="numeric" name="qty[]" placeholder="Qty" required class="input-ribuan w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
@@ -205,7 +327,67 @@
 
     <script>
         // GANTI URL DI BAWAH INI DENGAN URL DEPLOYMENT GOOGLE APPS SCRIPT ANDA
-        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxyUVyG5lLy0JDDoi_Q4pu7V5bMDc7HyZqd5pddcu-j3juIv6pcWTPBJ2MoT7hwOD174g/exec'; 
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXoV1WJQOZc-adiCuVQj4Djgi21ukxM2pPkDCZmqAjMKxVvlhYkn46mia890Wd7LOoRw/exec'; 
+
+        const BARANG_OPTIONS = `
+            <option value="" disabled selected>Pilih Barang</option>
+            <optgroup label="Bahan">
+                <option value="Dimsum">Dimsum</option>
+                <option value="Mentai">Mentai</option>
+                <option value="Saus Tomat">Saus Tomat</option>
+                <option value="Saus Sambal Extra Hot">Saus Sambal Extra Hot</option>
+                <option value="Saus Sambal Hot1">Saus Sambal Hot1</option>
+                <option value="Chili Oil">Chili Oil</option>
+                <option value="Rumput Laut">Rumput Laut</option>
+                <option value="Sumpit">Sumpit</option>
+                <option value="Dus XS">Dus XS</option>
+                <option value="Dus S">Dus S</option>
+                <option value="Dus M">Dus M</option>
+                <option value="Dus L">Dus L</option>
+                <option value="Aluminum Foil">Aluminum Foil</option>
+                <option value="Plastik 15">Plastik 15</option>
+                <option value="Plastik 20">Plastik 20</option>
+                <option value="Plastik 25">Plastik 25</option>
+                <option value="Plastik Klip">Plastik Klip</option>
+                <option value="Plastik Cup">Plastik Cup</option>
+                <option value="Gas Portable">Gas Portable</option>
+                <option value="Sarung Tangan Plastik">Sarung Tangan Plastik</option>
+                <option value="Plastik Merah">Plastik Merah</option>
+                <option value="Tisu">Tisu</option>
+                <option value="Keju">Keju</option>
+            </optgroup>
+            <optgroup label="Alat">
+                <option value="Kompor">Kompor</option>
+                <option value="Gas">Gas</option>
+                <option value="Kukusan">Kukusan</option>
+                <option value="Penyangga Kukusan">Penyangga Kukusan</option>
+                <option value="Ember">Ember</option>
+                <option value="Flame Gun">Flame Gun</option>
+                <option value="Tempat sumpit">Tempat sumpit</option>
+                <option value="Box Dimsum">Box Dimsum</option>
+                <option value="Box Mentai">Box Mentai</option>
+                <option value="Tempat Nori">Tempat Nori</option>
+                <option value="Pisau">Pisau</option>
+                <option value="Penjepit">Penjepit</option>
+                <option value="Buku">Buku</option>
+                <option value="Pulpen">Pulpen</option>
+                <option value="Dompet">Dompet</option>
+                <option value="Teko">Teko</option>
+                <option value="Sendok">Sendok</option>
+                <option value="Galon">Galon</option>
+            </optgroup>
+            <optgroup label="Operational">
+                <option value="Salar">Salar</option>
+                <option value="Gas">Gas</option>
+                <option value="Gaji">Gaji</option>
+            </optgroup>
+            <optgroup label="Tambahan">
+                <option value="Tobiko">Tobiko</option>
+                <option value="Saos">Saos</option>
+                <option value="Chili">Chili</option>
+                <option value="Sunlight">Sunlight</option>
+            </optgroup>
+        `;
 
         /* Mengelola Perpindahan Tab */
         function switchTab(tabId) {
@@ -234,7 +416,9 @@
                 rowDiv.className = 'flex gap-2 items-start item-row mt-3';
                 rowDiv.innerHTML = `
                     <div class="flex-1">
-                        <input type="text" name="nama_barang[]" placeholder="Nama Barang" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                        <select name="nama_barang[]" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                            ${BARANG_OPTIONS}
+                        </select>
                     </div>
                     <div class="w-24">
                         <input type="text" inputmode="numeric" name="qty[]" placeholder="Qty" required class="input-ribuan w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
@@ -247,7 +431,9 @@
                 rowDiv.className = 'flex flex-wrap md:flex-nowrap gap-2 items-start item-row mt-3';
                 rowDiv.innerHTML = `
                     <div class="flex-1 min-w-[150px]">
-                        <input type="text" name="nama_barang[]" placeholder="Nama Barang" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                        <select name="nama_barang[]" required class="w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                            ${BARANG_OPTIONS}
+                        </select>
                     </div>
                     <div class="w-24 flex-shrink-0">
                         <input type="text" inputmode="numeric" name="qty[]" placeholder="Qty" required class="input-ribuan w-full border border-gray-300 rounded-lg p-2.5 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none">
@@ -332,6 +518,46 @@
                    e.target.setSelectionRange(cursorPosition, cursorPosition);
                 } catch(err) {} 
             }
+        });
+
+        /* Perhitungan Otomatis Keuangan Penjualan */
+        function parseRibuan(str) {
+            if(!str) return 0;
+            // Menghapus karakter selain angka & minus
+            return parseInt(str.replace(/[^0-9-]/g, ''), 10) || 0;
+        }
+
+        function formatRibuan(num) {
+            return num.toLocaleString('id-ID');
+        }
+
+        function hitungKeuangan() {
+            const form = document.getElementById('form-penjualan');
+            const total = parseRibuan(form.total_penjualan.value);
+            const qr = parseRibuan(form.qr.value);
+            const gas = parseRibuan(form.gas.value);
+            const bensin = parseRibuan(form.bensin.value);
+            const lain = parseRibuan(form.lain_lain.value);
+
+            // Perhitungan Cash
+            const cash = total - qr;
+            form.cash.value = formatRibuan(cash);
+
+            // Perhitungan Setoran
+            const setoran = cash - gas - bensin - lain;
+            form.setoran.value = formatRibuan(setoran);
+        }
+
+        // Tambahkan event listener untuk kalkulasi otomatis setiap kali input keuangan berubah
+        document.addEventListener('DOMContentLoaded', () => {
+            const formPenjualan = document.getElementById('form-penjualan');
+            const triggerInputs = ['total_penjualan', 'qr', 'gas', 'bensin', 'lain_lain'];
+            triggerInputs.forEach(name => {
+                const inputEl = formPenjualan.querySelector(`[name="${name}"]`);
+                if(inputEl) {
+                    inputEl.addEventListener('input', hitungKeuangan);
+                }
+            });
         });
 
         /* Mengelola Submit Data ke Google Apps Script */
